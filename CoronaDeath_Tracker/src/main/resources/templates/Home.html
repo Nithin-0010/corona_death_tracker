@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Corona Virus Tracker</title>
+<link rel="stylesheet" th:href="@{/css/Style.css}">
+</head>
+<body>
+   <div>
+      <h1>Corona Virus Tracker Application</h1><br>
+      <p>This Application List the Current Number of Cases Reported All Over The World</p><br>
+      <p>Total cases reported as of Today
+      <h1 th:text="${totalDeaths}"></h1>
+   </div>
+   <div>
+      <table>
+         <thead>
+            <tr>
+               <th>State</th>
+               <th>Country</th>
+               <th>Total Deaths Reported</th>
+               <th>Changes since Last Day</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr th:each="data : ${coronaData}">
+               <td th:text="${data.state}"></td>
+               <td th:text="${data.country}"></td>
+               <td th:text="${data.LatestDeathcount}"></td>
+               <td th:text="${data.DifferFromPY}"></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</body>
+</html>
